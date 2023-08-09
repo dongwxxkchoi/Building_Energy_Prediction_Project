@@ -1,0 +1,275 @@
+$id:32
+Layers:[{'Material': {'$ref': '13'}, 'Thickness': 0.2}, {'Material': {'$ref': '23'}, 'Thickness': 0.015}, {'Material': {'$ref': '24'}, 'Thickness': 0.07}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Res_Bas_0
+$id:33
+Layers:[{'Material': {'$ref': '30'}, 'Thickness': 0.003}, {'Material': {'$ref': '20'}, 'Thickness': 0.01}, {'Material': {'$ref': '23'}, 'Thickness': 0.015}, {'Material': {'$ref': '24'}, 'Thickness': 0.1}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Res_Fac_0_WF
+$id:34
+Layers:[{'Material': {'$ref': '13'}, 'Thickness': 0.2}, {'Material': {'$ref': '23'}, 'Thickness': 0.015}, {'Material': {'$ref': '24'}, 'Thickness': 0.07}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Ret_Bas_0
+$id:35
+Layers:[{'Material': {'$ref': '17'}, 'Thickness': 0.06}, {'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '11'}, 'Thickness': 0.15}, {'Material': {'$ref': '24'}, 'Thickness': 0.05}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Off_Fac_0
+$id:36
+Layers:[{'Material': {'$ref': '17'}, 'Thickness': 0.06}, {'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '11'}, 'Thickness': 0.15}, {'Material': {'$ref': '24'}, 'Thickness': 0.05}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Ret_Fac_0
+$id:37
+Layers:[{'Material': {'$ref': '13'}, 'Thickness': 0.2}, {'Material': {'$ref': '23'}, 'Thickness': 0.015}, {'Material': {'$ref': '24'}, 'Thickness': 0.07}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Off_Bas_0
+$id:38
+Layers:[{'Material': {'$ref': '14'}, 'Thickness': 0.1}, {'Material': {'$ref': '23'}, 'Thickness': 0.02}, {'Material': {'$ref': '24'}, 'Thickness': 0.12}, {'Material': {'$ref': '18'}, 'Thickness': 0.1}, {'Material': {'$ref': '16'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Roof
+Comments:default
+DataSource:default
+Name:Boston_Res_Rof_0
+$id:39
+Layers:[{'Material': {'$ref': '20'}, 'Thickness': 0.1}, {'Material': {'$ref': '14'}, 'Thickness': 0.15}, {'Material': {'$ref': '13'}, 'Thickness': 0.2}, {'Material': {'$ref': '18'}, 'Thickness': 0.15}, {'Material': {'$ref': '16'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Roof
+Comments:default
+DataSource:default
+Name:Boston_Off_Rof_0
+$id:40
+Layers:[{'Material': {'$ref': '20'}, 'Thickness': 0.1}, {'Material': {'$ref': '14'}, 'Thickness': 0.15}, {'Material': {'$ref': '13'}, 'Thickness': 0.2}, {'Material': {'$ref': '18'}, 'Thickness': 0.15}, {'Material': {'$ref': '16'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Roof
+Comments:default
+DataSource:default
+Name:Boston_Ret_Rof_0
+$id:41
+Layers:[{'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '14'}, 'Thickness': 0.04}, {'Material': {'$ref': '22'}, 'Thickness': 0.03}, {'Material': {'$ref': '19'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Ground Floor
+Comments:default
+DataSource:default
+Name:Boston_Res_Gro_0
+$id:42
+Layers:[{'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '14'}, 'Thickness': 0.04}, {'Material': {'$ref': '22'}, 'Thickness': 0.03}, {'Material': {'$ref': '19'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Ground Floor
+Comments:default
+DataSource:default
+Name:Boston_Off_Gro_0
+$id:43
+Layers:[{'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '14'}, 'Thickness': 0.04}, {'Material': {'$ref': '22'}, 'Thickness': 0.03}, {'Material': {'$ref': '19'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Ground Floor
+Comments:default
+DataSource:default
+Name:Boston_Ret_Gro_0
+$id:44
+Layers:[{'Material': {'$ref': '10'}, 'Thickness': 0.02}, {'Material': {'$ref': '20'}, 'Thickness': 0.01}, {'Material': {'$ref': '23'}, 'Thickness': 0.02}, {'Material': {'$ref': '18'}, 'Thickness': 0.15}, {'Material': {'$ref': '16'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Interior Floor
+Comments:default
+DataSource:default
+Name:Boston_Res_Inf_0
+$id:45
+Layers:[{'Material': {'$ref': '25'}, 'Thickness': 0.02}, {'Material': {'$ref': '22'}, 'Thickness': 0.02}, {'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '18'}, 'Thickness': 0.15}, {'Material': {'$ref': '16'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Interior Floor
+Comments:default
+DataSource:default
+Name:Boston_Off_Inf_0
+$id:46
+Layers:[{'Material': {'$ref': '25'}, 'Thickness': 0.02}, {'Material': {'$ref': '22'}, 'Thickness': 0.02}, {'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '18'}, 'Thickness': 0.15}, {'Material': {'$ref': '16'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Interior Floor
+Comments:default
+DataSource:default
+Name:Boston_Ret_Inf_0
+$id:47
+Layers:[{'Material': {'$ref': '26'}, 'Thickness': 0.02}, {'Material': {'$ref': '20'}, 'Thickness': 0.04}, {'Material': {'$ref': '23'}, 'Thickness': 0.02}, {'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '10'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Exterior Floor
+Comments:default
+DataSource:default
+Name:Boston_Res_Exf_0
+$id:48
+Layers:[{'Material': {'$ref': '21'}, 'Thickness': 0.02}, {'Material': {'$ref': '27'}, 'Thickness': 0.02}, {'Material': {'$ref': '21'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Partition
+Comments:default
+DataSource:default
+Name:Boston_Off_Par_0
+$id:49
+Layers:[{'Material': {'$ref': '21'}, 'Thickness': 0.02}, {'Material': {'$ref': '27'}, 'Thickness': 0.02}, {'Material': {'$ref': '21'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Partition
+Comments:default
+DataSource:default
+Name:Boston_Ret_Par_0
+$id:50
+Layers:[{'Material': {'$ref': '21'}, 'Thickness': 0.02}, {'Material': {'$ref': '27'}, 'Thickness': 0.02}, {'Material': {'$ref': '21'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Partition
+Comments:default
+DataSource:default
+Name:Boston_Res_Par_0
+$id:51
+Layers:[{'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '20'}, 'Thickness': 0.04}, {'Material': {'$ref': '22'}, 'Thickness': 0.02}, {'Material': {'$ref': '25'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Exterior Floor
+Comments:default
+DataSource:default
+Name:Boston_Off_Exf_0
+$id:52
+Layers:[{'Material': {'$ref': '13'}, 'Thickness': 0.15}, {'Material': {'$ref': '20'}, 'Thickness': 0.04}, {'Material': {'$ref': '22'}, 'Thickness': 0.02}, {'Material': {'$ref': '25'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Exterior Floor
+Comments:default
+DataSource:default
+Name:Boston_Ret_Exf_0
+$id:53
+Layers:[{'Material': {'$ref': '21'}, 'Thickness': 0.02}, {'Material': {'$ref': '27'}, 'Thickness': 0.02}, {'Material': {'$ref': '21'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:ThermalMass
+Comments:default
+DataSource:default
+Name:Boston_Res_Thm_0
+$id:54
+Layers:[{'Material': {'$ref': '21'}, 'Thickness': 0.02}, {'Material': {'$ref': '27'}, 'Thickness': 0.02}, {'Material': {'$ref': '21'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:ThermalMass
+Comments:default
+DataSource:default
+Name:Boston_Off_Thm_0
+$id:55
+Layers:[{'Material': {'$ref': '21'}, 'Thickness': 0.02}, {'Material': {'$ref': '27'}, 'Thickness': 0.02}, {'Material': {'$ref': '21'}, 'Thickness': 0.02}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:ThermalMass
+Comments:default
+DataSource:default
+Name:Boston_Ret_Thm_0
+$id:56
+Layers:[{'Material': {'$ref': '17'}, 'Thickness': 0.06}, {'Material': {'$ref': '20'}, 'Thickness': 0.02}, {'Material': {'$ref': '11'}, 'Thickness': 0.15}, {'Material': {'$ref': '24'}, 'Thickness': 0.05}, {'Material': {'$ref': '16'}, 'Thickness': 0.015}]
+AssemblyCarbon:0.0
+AssemblyCost:0.0
+AssemblyEnergy:0.0
+DisassemblyCarbon:0.0
+DisassemblyEnergy:0.0
+Category:Facade
+Comments:default
+DataSource:default
+Name:Boston_Res_Fac_0_MS
