@@ -5,6 +5,6 @@
 /venv/Lib
 /venv/__pycache__
 /venv/.idea
-/venv.zip
+*.zip
 /.idea
 /.ipynb_checkouts
