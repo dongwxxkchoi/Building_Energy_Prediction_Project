@@ -1,0 +1,30 @@
+Program Version,EnergyPlus, Version 8.4.0-09f5359d8a, YMD=2023.08.02 14:39,IDD_Version 8.4.0
+   ** Warning ** IP: Note -- Some missing fields have been filled with defaults. See the audit output file for details.
+   ** Severe  ** CheckConvexity: Surface="SHADER_2" is non-planar.
+   **   ~~~   ** Coincident Vertices will be removed as possible.
+   **   ~~~   **  (********,********,  52.737)
+   **   ~~~   **  (********,********,  45.362)
+   **   ~~~   **  (********,********,  45.362)
+   ** Severe  ** CheckConvexity: Surface="SHADER_3" is non-planar.
+   **   ~~~   ** Coincident Vertices will be removed as possible.
+   **   ~~~   **  (********,********,  52.737)
+   **   ~~~   **  (********,********,  52.737)
+   **   ~~~   **  (********,********,  67.487)
+   ** Severe  ** GetSurfaceData: Zero or negative surface area[0.00000], Surface=SHADER_2
+   ** Severe  ** GetSurfaceData: Zero or negative surface area[0.00000], Surface=Mir-SHADER_2
+   ** Severe  ** GetSurfaceData: Zero or negative surface area[0.00000], Surface=SHADER_3
+   ** Severe  ** GetSurfaceData: Zero or negative surface area[0.00000], Surface=Mir-SHADER_3
+   ** Warning ** GetSurfaceData: There are 3 coincident/collinear vertices; These have been deleted unless the deletion would bring the number of surface sides < 3.
+   **   ~~~   ** For explicit details on each problem surface, use Output:Diagnostics,DisplayExtraWarnings;
+   ** Severe  ** GetSurfaceData: There are 2 degenerate surfaces; Degenerate surfaces are those with number of sides < 3.
+   **   ~~~   ** These surfaces should be deleted.
+   **   ~~~   ** For explicit details on each problem surface, use Output:Diagnostics,DisplayExtraWarnings;
+   **  Fatal  ** GetSurfaceData: Errors discovered, program terminates.
+   ...Summary of Errors that led to program termination:
+   ..... Reference severe error count=8
+   ..... Last severe error=GetSurfaceData: There are 2 degenerate surfaces; Degenerate surfaces are those with number of sides < 3.
+   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).
+   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Terminated--Fatal Error Detected. 4 Warning; 8 Severe Errors; Elapsed Time=00hr 00min  0.49sec

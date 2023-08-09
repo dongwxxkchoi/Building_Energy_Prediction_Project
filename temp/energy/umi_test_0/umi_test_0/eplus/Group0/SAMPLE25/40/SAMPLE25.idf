@@ -1,0 +1,1537 @@
+! ----  This file was generated with Archsim v.4.3.1.0
+
+Version,8.4;
+
+ProgramControl,
+4; !- Number of Threads Allowed
+
+RunPeriod,
+  Archsim,                 !- Name
+  1,                       !- Begin Month
+  1,                       !- Begin Day of Month
+  12,                      !- End Month
+  31,                      !- End Day of Month
+  UseWeatherFile,          !- Day of Week for Start Day
+  No,                      !- Use Weather File Holidays and Special Days
+  No,                      !- Use Weather File Daylight Saving Period
+  Yes,                     !- Apply Weekend Holiday Rule
+  Yes,                     !- Use Weather File Rain Indicators
+  Yes,                     !- Use Weather File Snow Indicators
+  1;                       !- Number of Times Runperiod to be Repeated
+
+RunPeriodControl:DaylightSavingTime,
+  Last Sunday in March,    !- Start Date
+  Last Sunday in October;  !- End Date
+
+Site:GroundTemperature:BuildingSurface,18;
+
+Site:GroundReflectance,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2;
+
+Site:GroundReflectance:SnowModifier,
+  1.0,                     !- Ground Reflected Solar Modifier
+  1.0;                     !- Daylighting Ground Reflected Solar Modifier
+
+SimulationControl,
+  No,                      !- Do Zone Sizing Calculation
+  No,                      !- Do System Sizing Calculation
+  No,                      !- Do Plant Sizing Calculation
+  No,                      !- Run Simulation for Sizing Periods
+  Yes;                     !- Run Simulation for Weather File Run Periods
+
+
+
+ConvergenceLimits,
+  1,                       !- Minimum System Timestep {minutes}
+  50;                      !- Maximum HVAC Iterations
+
+ScheduleTypeLimits,
+  Any Number;              !- Name
+
+ScheduleTypeLimits,
+  Fraction,                !- Name
+  0.0,                     !- Lower Limit Value
+  1.0,                     !- Upper Limit Value
+  CONTINUOUS;              !- Numeric Type
+
+ScheduleTypeLimits,
+  Temperature,             !- Name
+  -60,                     !- Lower Limit Value
+  200,                     !- Upper Limit Value
+  CONTINUOUS;              !- Numeric Type
+
+ScheduleTypeLimits,
+  Control Type,            !- Name
+  0,                       !- Lower Limit Value
+  4,                       !- Upper Limit Value
+  DISCRETE;                !- Numeric Type
+
+ScheduleTypeLimits,
+  On/Off,                  !- Name
+  0,                       !- Lower Limit Value
+  1,                       !- Upper Limit Value
+  DISCRETE;                !- Numeric Type
+
+Schedule:Constant,
+  On,                      !- Name
+  On/Off,                  !- Schedule Type Limits Name
+  1;                       !- Value
+
+Schedule:Constant,
+  Off,                     !- Name
+  On/Off,                  !- Schedule Type Limits Name
+  0;                       !- Value
+
+
+GlobalGeometryRules,
+  LowerLeftCorner,         !- Starting Vertex Position
+  CounterClockWise,        !- Vertex Entry Direction
+  World;                !- Coordinate System
+
+! -------------------------ERL SENSORS--------------------------
+
+EnergyManagementSystem:Sensor,                                             
+  OutdoorTemp, !- Name                                         
+  Environment, !- Output:Variable Index Key Name               
+  Site Outdoor Air Drybulb Temperature; !- Output:Variable Name
+EnergyManagementSystem:Sensor,                                             
+  OutdoorRelHumid, !- Name                                         
+  Environment, !- Output:Variable Index Key Name               
+  Site Outdoor Air Relative Humidity; !- Output:Variable Name
+
+
+Output:EnergyManagementSystem,
+  Verbose,                 !- Actuator Availability Dictionary Reporting
+  Verbose,                 !- Internal Variable Availability Dictionary Reporting
+  Verbose;                 !- EMS Runtime Language Debug Output Level
+
+
+
+ShadowCalculation,
+  AverageOverDaysInFrequency,  !- Calculation Method
+  20,                      !- Calculation Frequency
+  15000,                   !- Maximum Figures in Shadow Overlap Calculations
+  SutherlandHodgman,       !- Polygon Clipping Algorithm
+  SimpleSkyDiffuseModeling;!- Sky Diffuse Modeling Algorithm
+
+Building,
+  Building,                !- Name
+  0,                       !- North Axis [deg]
+  Suburbs,                 !- Terrain
+  .04,                     !- Loads Convergence Tolerance Value
+  .4,                      !- Temperature Convergence Tolerance Value {deltaC}
+  FullExterior,            !- Solar Distribution   should be  FullInteriorAndExterior
+  25,                      !- Maximum Number of Warmup Days
+  ;                        !- Minimum Number of Warmup Days
+
+HeatBalanceAlgorithm,
+    ConductionTransferFunction,  !- Algorithm
+    200,                     !- Surface Temperature Upper Limit {C}
+    0.1,                     !- Minimum Surface Convection Heat Transfer Coefficient Value {W/m2-K}
+    1000;                    !- Maximum Surface Convection Heat Transfer Coefficient Value {W/m2-K}
+
+Timestep,4;
+
+SurfaceConvectionAlgorithm:Inside,TARP;
+
+SurfaceConvectionAlgorithm:Outside,DOE-2;
+
+! ------------ CONSTRUCTIONS 
+
+! Boston_Res_Thm_0 Type: Facade
+Construction, Boston_Res_Thm_0,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Thm_0,
+Boston_Softwood_General_0.02_Boston_Res_Thm_0,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Thm_0;
+
+Construction, Boston_Res_Thm_0_FLIPPED,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Thm_0,
+Boston_Softwood_General_0.02_Boston_Res_Thm_0,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Thm_0;
+
+
+
+! Materials
+!- Material: Boston_Gypsum_Plaster Type: No Category
+Material, Boston_Gypsum_Plaster_0.02_Boston_Res_Thm_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.42,                                          !- Conductivity {w/m-K}
+ 900,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Softwood_General Type: No Category
+Material, Boston_Softwood_General_0.02_Boston_Res_Thm_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.13,                                          !- Conductivity {w/m-K}
+ 496,                                          !- Density {kg/m3}
+ 1630,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+
+
+! Boston_Res_Fac_0_MS Type: Facade
+Construction, Boston_Res_Fac_0_MS,
+Boston_Clay_Brick_H_0.06_Boston_Res_Fac_0_MS,
+Boston_XPS_Board_0.02_Boston_Res_Fac_0_MS,
+Boston_Concrete_Block_H_0.15_Boston_Res_Fac_0_MS,
+Boston_Fiberglass_Batts_0.05_Boston_Res_Fac_0_MS,
+Boston_Gypsum_Board_0.015_Boston_Res_Fac_0_MS;
+
+Construction, Boston_Res_Fac_0_MS_FLIPPED,
+Boston_Gypsum_Board_0.015_Boston_Res_Fac_0_MS,
+Boston_Fiberglass_Batts_0.05_Boston_Res_Fac_0_MS,
+Boston_Concrete_Block_H_0.15_Boston_Res_Fac_0_MS,
+Boston_XPS_Board_0.02_Boston_Res_Fac_0_MS,
+Boston_Clay_Brick_H_0.06_Boston_Res_Fac_0_MS;
+
+
+
+! Materials
+!- Material: Boston_Clay_Brick_H Type: No Category
+Material, Boston_Clay_Brick_H_0.06_Boston_Res_Fac_0_MS ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.06,                                         !- Thickness {m}
+ 0.41,                                          !- Conductivity {w/m-K}
+ 1000,                                          !- Density {kg/m3}
+ 920,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.5,                                           !- Solar Absorptance
+ 0.5;                                           !- Visible Absorptance
+
+!- Material: Boston_XPS_Board Type: No Category
+Material, Boston_XPS_Board_0.02_Boston_Res_Fac_0_MS ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.037,                                          !- Conductivity {w/m-K}
+ 40,                                          !- Density {kg/m3}
+ 1200,                                          !- Specific Heat {J/kg-K}
+ 0.6,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+!- Material: Boston_Concrete_Block_H Type: No Category
+Material, Boston_Concrete_Block_H_0.15_Boston_Res_Fac_0_MS ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.15,                                         !- Thickness {m}
+ 1.25,                                          !- Conductivity {w/m-K}
+ 880,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Fiberglass_Batts Type: No Category
+Material, Boston_Fiberglass_Batts_0.05_Boston_Res_Fac_0_MS ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.05,                                         !- Thickness {m}
+ 0.043,                                          !- Conductivity {w/m-K}
+ 12,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+!- Material: Boston_Gypsum_Board Type: No Category
+Material, Boston_Gypsum_Board_0.015_Boston_Res_Fac_0_MS ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.015,                                         !- Thickness {m}
+ 0.16,                                          !- Conductivity {w/m-K}
+ 950,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+
+
+! Boston_Res_Par_0 Type: Partition
+Construction, Boston_Res_Par_0,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Par_0,
+Boston_Softwood_General_0.02_Boston_Res_Par_0,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Par_0;
+
+Construction, Boston_Res_Par_0_FLIPPED,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Par_0,
+Boston_Softwood_General_0.02_Boston_Res_Par_0,
+Boston_Gypsum_Plaster_0.02_Boston_Res_Par_0;
+
+
+
+! Materials
+!- Material: Boston_Gypsum_Plaster Type: No Category
+Material, Boston_Gypsum_Plaster_0.02_Boston_Res_Par_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.42,                                          !- Conductivity {w/m-K}
+ 900,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Softwood_General Type: No Category
+Material, Boston_Softwood_General_0.02_Boston_Res_Par_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.13,                                          !- Conductivity {w/m-K}
+ 496,                                          !- Density {kg/m3}
+ 1630,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+
+
+! Boston_Res_Inf_0 Type: InteriorFloor
+Construction, Boston_Res_Inf_0,
+Boston_Wood_Floor_0.02_Boston_Res_Inf_0,
+Boston_XPS_Board_0.01_Boston_Res_Inf_0,
+Boston_Plywood_Board_0.02_Boston_Res_Inf_0,
+Boston_Air_Floor_15cm_0.15_Boston_Res_Inf_0,
+Boston_Gypsum_Board_0.02_Boston_Res_Inf_0;
+
+Construction, Boston_Res_Inf_0_FLIPPED,
+Boston_Gypsum_Board_0.02_Boston_Res_Inf_0,
+Boston_Air_Floor_15cm_0.15_Boston_Res_Inf_0,
+Boston_Plywood_Board_0.02_Boston_Res_Inf_0,
+Boston_XPS_Board_0.01_Boston_Res_Inf_0,
+Boston_Wood_Floor_0.02_Boston_Res_Inf_0;
+
+
+
+! Materials
+!- Material: Boston_Wood_Floor Type: No Category
+Material, Boston_Wood_Floor_0.02_Boston_Res_Inf_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.14,                                          !- Conductivity {w/m-K}
+ 650,                                          !- Density {kg/m3}
+ 1200,                                          !- Specific Heat {J/kg-K}
+ 0.85,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+!- Material: Boston_XPS_Board Type: No Category
+Material, Boston_XPS_Board_0.01_Boston_Res_Inf_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.01,                                         !- Thickness {m}
+ 0.037,                                          !- Conductivity {w/m-K}
+ 40,                                          !- Density {kg/m3}
+ 1200,                                          !- Specific Heat {J/kg-K}
+ 0.6,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+!- Material: Boston_Plywood_Board Type: No Category
+Material, Boston_Plywood_Board_0.02_Boston_Res_Inf_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.11,                                          !- Conductivity {w/m-K}
+ 540,                                          !- Density {kg/m3}
+ 1880,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Air_Floor_15cm Type: No Category
+Material, Boston_Air_Floor_15cm_0.15_Boston_Res_Inf_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.15,                                         !- Thickness {m}
+ 0.7,                                          !- Conductivity {w/m-K}
+ 1.2,                                          !- Density {kg/m3}
+ 1000,                                          !- Specific Heat {J/kg-K}
+ 0.01,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Gypsum_Board Type: No Category
+Material, Boston_Gypsum_Board_0.02_Boston_Res_Inf_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.16,                                          !- Conductivity {w/m-K}
+ 950,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+
+
+! Boston_Res_Gro_0 Type: GroundFloor
+Construction, Boston_Res_Gro_0,
+Boston_XPS_Board_0.02_Boston_Res_Gro_0,
+Boston_Concrete_RC_Dense_0.15_Boston_Res_Gro_0,
+Boston_Concrete_MC_Light_0.04_Boston_Res_Gro_0,
+Boston_Cement_Mortar_0.03_Boston_Res_Gro_0,
+Boston_Ceramic_Tile_0.02_Boston_Res_Gro_0;
+
+Construction, Boston_Res_Gro_0_FLIPPED,
+Boston_Ceramic_Tile_0.02_Boston_Res_Gro_0,
+Boston_Cement_Mortar_0.03_Boston_Res_Gro_0,
+Boston_Concrete_MC_Light_0.04_Boston_Res_Gro_0,
+Boston_Concrete_RC_Dense_0.15_Boston_Res_Gro_0,
+Boston_XPS_Board_0.02_Boston_Res_Gro_0;
+
+
+
+! Materials
+!- Material: Boston_XPS_Board Type: No Category
+Material, Boston_XPS_Board_0.02_Boston_Res_Gro_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.037,                                          !- Conductivity {w/m-K}
+ 40,                                          !- Density {kg/m3}
+ 1200,                                          !- Specific Heat {J/kg-K}
+ 0.6,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+!- Material: Boston_Concrete_RC_Dense Type: No Category
+Material, Boston_Concrete_RC_Dense_0.15_Boston_Res_Gro_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.15,                                         !- Thickness {m}
+ 1.75,                                          !- Conductivity {w/m-K}
+ 2400,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Concrete_MC_Light Type: No Category
+Material, Boston_Concrete_MC_Light_0.04_Boston_Res_Gro_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.04,                                         !- Thickness {m}
+ 1.65,                                          !- Conductivity {w/m-K}
+ 2100,                                          !- Density {kg/m3}
+ 1040,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Cement_Mortar Type: No Category
+Material, Boston_Cement_Mortar_0.03_Boston_Res_Gro_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.03,                                         !- Thickness {m}
+ 0.8,                                          !- Conductivity {w/m-K}
+ 1900,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.8,                                           !- Solar Absorptance
+ 0.8;                                           !- Visible Absorptance
+
+!- Material: Boston_Ceramic_Tile Type: No Category
+Material, Boston_Ceramic_Tile_0.02_Boston_Res_Gro_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.8,                                          !- Conductivity {w/m-K}
+ 2243,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.4,                                           !- Solar Absorptance
+ 0.4;                                           !- Visible Absorptance
+
+
+
+! Boston_Res_Rof_0 Type: Roof
+Construction, Boston_Res_Rof_0,
+Boston_Concrete_MC_Light_0.1_Boston_Res_Rof_0,
+Boston_Plywood_Board_0.02_Boston_Res_Rof_0,
+Boston_Fiberglass_Batts_0.12_Boston_Res_Rof_0,
+Boston_Air_Floor_15cm_0.1_Boston_Res_Rof_0,
+Boston_Gypsum_Board_0.02_Boston_Res_Rof_0;
+
+Construction, Boston_Res_Rof_0_FLIPPED,
+Boston_Gypsum_Board_0.02_Boston_Res_Rof_0,
+Boston_Air_Floor_15cm_0.1_Boston_Res_Rof_0,
+Boston_Fiberglass_Batts_0.12_Boston_Res_Rof_0,
+Boston_Plywood_Board_0.02_Boston_Res_Rof_0,
+Boston_Concrete_MC_Light_0.1_Boston_Res_Rof_0;
+
+
+
+! Materials
+!- Material: Boston_Concrete_MC_Light Type: No Category
+Material, Boston_Concrete_MC_Light_0.1_Boston_Res_Rof_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.1,                                         !- Thickness {m}
+ 1.65,                                          !- Conductivity {w/m-K}
+ 2100,                                          !- Density {kg/m3}
+ 1040,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Plywood_Board Type: No Category
+Material, Boston_Plywood_Board_0.02_Boston_Res_Rof_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.11,                                          !- Conductivity {w/m-K}
+ 540,                                          !- Density {kg/m3}
+ 1880,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Fiberglass_Batts Type: No Category
+Material, Boston_Fiberglass_Batts_0.12_Boston_Res_Rof_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.12,                                         !- Thickness {m}
+ 0.043,                                          !- Conductivity {w/m-K}
+ 12,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+!- Material: Boston_Air_Floor_15cm Type: No Category
+Material, Boston_Air_Floor_15cm_0.1_Boston_Res_Rof_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.1,                                         !- Thickness {m}
+ 0.7,                                          !- Conductivity {w/m-K}
+ 1.2,                                          !- Density {kg/m3}
+ 1000,                                          !- Specific Heat {J/kg-K}
+ 0.01,                                           !- Thermal Emittance
+ 0.7,                                           !- Solar Absorptance
+ 0.7;                                           !- Visible Absorptance
+
+!- Material: Boston_Gypsum_Board Type: No Category
+Material, Boston_Gypsum_Board_0.02_Boston_Res_Rof_0 ,                !- Material name 
+ Rough,                                         !- Roughness
+ 0.02,                                         !- Thickness {m}
+ 0.16,                                          !- Conductivity {w/m-K}
+ 950,                                          !- Density {kg/m3}
+ 840,                                          !- Specific Heat {J/kg-K}
+ 0.9,                                           !- Thermal Emittance
+ 0.6,                                           !- Solar Absorptance
+ 0.6;                                           !- Visible Absorptance
+
+
+
+
+! ------------ GLAZING  
+
+! Boston_Dbl_Air_Cl Type: Other
+Construction, Boston_Dbl_Air_Cl,
+Boston_Glass_Clear_3_0.003_Boston_Dbl_Air_Cl,
+AIR_0.006_Boston_Dbl_Air_Cl,
+Boston_Glass_Clear_3_0.003_Boston_Dbl_Air_Cl;
+
+Construction, Boston_Dbl_Air_Cl_FLIPPED,
+Boston_Glass_Clear_3_0.003_Boston_Dbl_Air_Cl,
+AIR_0.006_Boston_Dbl_Air_Cl,
+Boston_Glass_Clear_3_0.003_Boston_Dbl_Air_Cl;
+
+
+
+! Materials
+WindowMaterial:Glazing,Boston_Glass_Clear_3_0.003_Boston_Dbl_Air_Cl,                         !- Generic CLEAR 3MM
+ SpectralAverage,                               !- Optical data type {SpectralAverage or Spectral}
+ SpectralAverage,                                              !- Name of spectral data set when Optical Data Type = Spectral
+ 0.003,                                          !- Thickness {m}
+ 0.83,                                          !- Solar transmittance at normal incidence
+ 0.07,                                          !- Solar reflectance at normal incidence: front side
+ 0.07,                                          !- Solar reflectance at normal incidence: back side
+ 0.89,                                          !- Visible transmittance at normal incidence
+ 0.08,                                          !- Visible reflectance at normal incidence: front side
+ 0.08,                                          !- Visible reflectance at normal incidence: back side
+ 0,                                            !- IR transmittance at normal incidence
+ 0.84,                                           !- IR emissivity: front side
+ 0.84,                                           !- IR emissivity: back side
+ 0.9,                                            !- Conductivity {W/m-K}
+ 1;                                             !- Dirt Correction Factor for Solar and Visible Transmittance
+
+! Gas: AIR GasType: AIR
+WindowMaterial:Gas,AIR_0.006_Boston_Dbl_Air_Cl ,                !- Material name 
+ AIR,                                           !- Gas type (Air - Argon - Krypton - Xenon - SF6 - Custom)
+ 0.006;                                         !- Thickness {m}
+
+
+
+
+
+! ------------ SCHEDULES  
+
+Schedule:Year,Boston_Res_Y_Occ,
+Fraction,
+Boston_Res_Y_Occ0,1,1,12,31;
+
+Schedule:Week:Daily, Boston_Res_Y_Occ0,
+  Boston_Res_D_Occ_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Occ_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Occ_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Occ_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Occ_WD; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,Boston_Res_Y_Dhw,
+Fraction,
+Boston_Res_Y_Dhw0,1,1,12,31;
+
+Schedule:Week:Daily, Boston_Res_Y_Dhw0,
+  Boston_Res_D_Dhw_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Dhw_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Dhw_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Dhw_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Dhw_WD; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,Boston_Res_Y_Lgt,
+Fraction,
+Boston_Res_Y_Lgt0,1,1,12,31;
+
+Schedule:Week:Daily, Boston_Res_Y_Lgt0,
+  Boston_Res_D_Lgt_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Lgt_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Lgt_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Lgt_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Lgt_WD; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,Boston_Res_Y_Plg,
+Fraction,
+Boston_Res_Y_Plg0,1,1,12,31;
+
+Schedule:Week:Daily, Boston_Res_Y_Plg0,
+  Boston_Res_D_Plg_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Plg_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Plg_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Plg_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Plg_WD; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,Boston_Res_Y_Het,
+Fraction,
+Boston_Res_Y_Het0,1,1,4,30,
+Boston_Res_Y_Het1,5,1,9,30,
+Boston_Res_Y_Het2,10,1,12,31;
+
+Schedule:Week:Daily, Boston_Res_Y_Het0,
+  Boston_Res_D_Het_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Het_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Het_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Het_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Het_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Het_WD; !- CustomDay2 Schedule:Day Name
+Schedule:Week:Daily, Boston_Res_Y_Het1,
+  Boston_Res_D_Off, !- Sunday Schedule:Day Name
+  Boston_Res_D_Off, !- Monday Schedule:Day Name
+  Boston_Res_D_Off, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Off, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Off, !- Thursday Schedule:Day Name
+  Boston_Res_D_Off, !- Friday Schedule:Day Name
+  Boston_Res_D_Off, !- Saturday Schedule:Day Name
+  Boston_Res_D_Off, !- Holiday Schedule:Day Name
+  Boston_Res_D_Off, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Off, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Off, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Off; !- CustomDay2 Schedule:Day Name
+Schedule:Week:Daily, Boston_Res_Y_Het2,
+  Boston_Res_D_Het_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Het_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Het_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Het_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Het_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Het_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Het_WD; !- CustomDay2 Schedule:Day Name
+
+Schedule:Year,Boston_Res_Y_Col,
+Fraction,
+Boston_Res_Y_Col0,1,1,6,30,
+Boston_Res_Y_Col1,7,1,9,30,
+Boston_Res_Y_Col2,10,1,12,31;
+
+Schedule:Week:Daily, Boston_Res_Y_Col0,
+  Boston_Res_D_Off, !- Sunday Schedule:Day Name
+  Boston_Res_D_Off, !- Monday Schedule:Day Name
+  Boston_Res_D_Off, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Off, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Off, !- Thursday Schedule:Day Name
+  Boston_Res_D_Off, !- Friday Schedule:Day Name
+  Boston_Res_D_Off, !- Saturday Schedule:Day Name
+  Boston_Res_D_Off, !- Holiday Schedule:Day Name
+  Boston_Res_D_Off, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Off, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Off, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Off; !- CustomDay2 Schedule:Day Name
+Schedule:Week:Daily, Boston_Res_Y_Col1,
+  Boston_Res_D_Col_WE, !- Sunday Schedule:Day Name
+  Boston_Res_D_Col_WD, !- Monday Schedule:Day Name
+  Boston_Res_D_Col_WD, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Col_WD, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Col_WD, !- Thursday Schedule:Day Name
+  Boston_Res_D_Col_WD, !- Friday Schedule:Day Name
+  Boston_Res_D_Col_WE, !- Saturday Schedule:Day Name
+  Boston_Res_D_Col_WE, !- Holiday Schedule:Day Name
+  Boston_Res_D_Col_WD, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Col_WD, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Col_WD, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Col_WD; !- CustomDay2 Schedule:Day Name
+Schedule:Week:Daily, Boston_Res_Y_Col2,
+  Boston_Res_D_Off, !- Sunday Schedule:Day Name
+  Boston_Res_D_Off, !- Monday Schedule:Day Name
+  Boston_Res_D_Off, !- Tuesday Schedule:Day Name
+  Boston_Res_D_Off, !- Wednesday Schedule:Day Name
+  Boston_Res_D_Off, !- Thursday Schedule:Day Name
+  Boston_Res_D_Off, !- Friday Schedule:Day Name
+  Boston_Res_D_Off, !- Saturday Schedule:Day Name
+  Boston_Res_D_Off, !- Holiday Schedule:Day Name
+  Boston_Res_D_Off, !- SummerDesignDay Schedule:Day Name
+  Boston_Res_D_Off, !- WinterDesignDay Schedule:Day Name
+  Boston_Res_D_Off, !- CustomDay1 Schedule:Day Name
+  Boston_Res_D_Off; !- CustomDay2 Schedule:Day Name
+
+Schedule:Day:Hourly, Boston_Res_D_Occ_WD, Fraction,1,1,1,1,1,1,1,0.7,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.7,1,1,1,1,1,1;
+
+Schedule:Day:Hourly, Boston_Res_D_Occ_WE, Fraction,1,1,1,1,1,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.3,0.3,0.3,0.3,0.7,0.7,1,1,1;
+
+Schedule:Day:Hourly, Boston_Res_D_Dhw_WD, Fraction,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0;
+
+Schedule:Day:Hourly, Boston_Res_D_Dhw_WE, Fraction,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0;
+
+Schedule:Day:Hourly, Boston_Res_D_Lgt_WD, Fraction,0,0,0,0,0,0,0.2,0.5,0.5,0.2,0.2,0,0,0,0,0,0,0,0.5,0.8,0.8,0.8,0.8,0.2;
+
+Schedule:Day:Hourly, Boston_Res_D_Lgt_WE, Fraction,0,0,0,0,0,0,0,0,0.2,0.5,0.2,0,0,0,0,0,0,0,0.5,0.8,0.8,0.8,0.8,0.2;
+
+Schedule:Day:Hourly, Boston_Res_D_Plg_WD, Fraction,0.2,0.2,0.2,0.2,0.2,0.2,0.6,0.6,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.6,1,1,0.8,0.8,0.6,0.6;
+
+Schedule:Day:Hourly, Boston_Res_D_Plg_WE, Fraction,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.2,0.2,0.2,0.2,1,1,0.8,0.8,0.6;
+
+Schedule:Day:Hourly, Boston_Res_D_Het_WD, Fraction,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1;
+
+Schedule:Day:Hourly, Boston_Res_D_Het_WE, Fraction,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1;
+
+Schedule:Day:Hourly, Boston_Res_D_Off, Fraction,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+
+Schedule:Day:Hourly, Boston_Res_D_Col_WD, Fraction,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0;
+
+Schedule:Day:Hourly, Boston_Res_D_Col_WE, Fraction,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0;
+
+
+
+
+!------------------------------------------------ ZONE ----------------------------------------------------
+
+Zone,
+  Perim,            !- Name
+  0,                       !- Rotation [deg]
+  0,                       !- X origin [m]
+  0,                       !- Y origin [m]
+  0,                       !- Z origin [m]
+  1,                       !- Type
+  1.0,                       !- Multiplier
+  ,                        !- Ceiling Height [m]
+  25.9355622809139,                   !- Volume [m3]
+  8.34415352598391,                   !- Area [m2]
+  TARP,                    !- Zone Inside Convection Algorithm
+  DOE-2;                   !- Zone Outside Convection Algorithm
+
+! ------------------------ PEOPLE
+People,
+    People Perim,                 !- Name
+    Perim,            !- Zone or ZoneList Name
+    Boston_Res_Y_Occ,        !- Number of People Schedule Name
+    People/Area,                  !- Number of People Calculation Method
+    ,                       !- Number of People
+    0.025,                        !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    AUTOCALCULATE,           !- Sensible Heat Fraction
+    PerimPeopleActivity,                    !- Activity Level Schedule Name
+    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    No,                      !- Enable ASHRAE 55 Comfort Warnings
+    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    PerimWorkEfficiency,  !- Work Efficiency Schedule Name
+    DynamicClothingModelASHRAE55,  !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    PerimAirVelocity,!- Air Velocity Schedule Name
+    AdaptiveASH55;           !- Thermal Comfort Model 1 Type
+
+Schedule:Constant, PerimPeopleActivity, Any Number, 125.28; ! - Watts per person, uses Metabolic Rate input (1 met = 58 W/m2) and assumes adult body surface area of 1.8 m2
+Schedule:Constant, PerimAirVelocity, Any Number, 0.2;
+Schedule:Constant, PerimWorkEfficiency, Any Number, 0;
+
+
+! ------------------------ EQUIPMENT
+ElectricEquipment,
+  Perim Equipment 1,!- Name
+  Perim,            !- Zone or ZoneList Name
+  Boston_Res_Y_Plg,                    !- Schedule Name
+  Watts/Area,          !- Design Level Calculation Method
+  ,                !- Design Level [W]
+  4,                        !- Watts per Zone Floor Area [W/m2]
+  ,                        !- Watts per Person [W/person]
+  0,                       !- Fraction Latent
+  .2,                      !- Fraction Radiant
+  0,                       !- Fraction Lost
+  ;                        !- End-Use Subcategory
+
+! ------------------------ LIGHTS
+Lights,
+  Perim General lighting,   !- Name
+  Perim,                    !- Zone or ZoneList Name
+  Boston_Res_Y_Lgt,          !- Schedule Name
+  Watts/Area,              !- Design Level Calculation Method
+  ,                        !- Lighting Level [W]
+  7,         !- Watts per Zone Floor Area [W/m2]
+  ,                        !- Watts per Person [W/person]
+  0,                       !- Return Air Fraction
+  .42,                     !- Fraction Radiant
+  .18,                     !- Fraction Visible
+  1,                       !- Fraction Replaceable
+  ;                        !- End-Use Subcategory
+
+
+
+! ------------------------ HVAC
+
+Schedule:Constant,
+  PerimHeating_SP_Sch, !- Name
+  Temperature, !- Schedule Type Limits Name
+  20; !- Hourly Value
+
+Schedule:Constant,
+  PerimCooling_SP_Sch, !- Name
+  Temperature, !- Schedule Type Limits Name
+  24; !- Hourly Value
+
+ZoneControl:Thermostat,
+  Perim Thermostat, !- Name
+  Perim,            !- Zone or ZoneList Name
+  PerimZoneControlTypeSched, !- Control Type Schedule Name
+  ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+  Dual Setpoint - Zone Perim;  !- Control 1 Name
+
+Schedule:Constant,
+  PerimZoneControlTypeSched, !- Name
+  Any Number, !- Schedule Type Limits Name
+  4; !- Hourly Value
+
+ThermostatSetpoint:DualSetpoint,
+  Dual Setpoint - Zone Perim,  !- Name
+  PerimHeating_SP_Sch,  !- Heating Setpoint Temperature Schedule Name
+  PerimCooling_SP_Sch;  !- Cooling Setpoint Temperature Schedule Name
+
+ZoneHVAC:EquipmentConnections,
+  Perim,            !- Zone Name
+  Perim Equipment,  !- Zone Conditioning Equipment List Name
+  Perim Inlets,     !- Zone Air Inlet Node or NodeList Name
+  ,                        !- Zone Air Exhaust Node or NodeList Name
+  Node Perim Zone,  !- Zone Air Node Name
+  Node Perim Out;   !- Zone Return Air Node Name
+
+ZoneHVAC:EquipmentList,
+  Perim Equipment,  !- Name
+  ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+  Perim Ideal Loads Air,  !- Zone Equipment 1 Name
+  1,                       !- Zone Equipment 1 Cooling Sequence
+  1;                       !- Zone Equipment 1 Heating or No-Load Sequence
+
+NodeList,
+  Perim Inlets,     !- Name
+  Node Perim In;    !- Node 1 Name
+
+ZoneHVAC:IdealLoadsAirSystem,
+  Perim Ideal Loads Air,  !- Name
+  ,                        !- Availability Schedule Name
+  Node Perim In,    !- Zone Supply Air Node Name
+  ,                        !- Zone Exhaust Air Node Name
+  30,                      !- Maximum Heating Supply Air Temperature {C}
+  18,                      !- Minimum Cooling Supply Air Temperature {C}
+  0.01,                    !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+  0.008,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+  NoLimit,                 !- Heating Limit
+  100,                        !- Maximum Heating Air Flow Rate [m3/s]
+  ,        				   !- Maximum Sensible Heating Capacity [W]
+  NoLimit,                 !- Cooling Limit
+  100 ,                        !- Maximum Cooling Air Flow Rate [m3/s]
+  ,                        !- Maximum Total Cooling Capacity [W]
+  Boston_Res_Y_Het,  !- Heating Availability Schedule Name
+  Boston_Res_Y_Col,  !- Cooling Availability Schedule Name
+  None,                    !- Dehumidification Control Type
+  ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+  None,                    !- Humidification Control Type
+  ,                        !- Design Specification Outdoor Air Object Name
+  ,                        !- Outdoor Air Inlet Node Name
+  ,                        !- Demand Controlled Ventilation Type
+  NoEconomizer,                        !- Outdoor Air Economizer Type
+  None,                        !- Heat Recovery Type
+  0.7,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+  0.65;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+
+ZoneControl:Humidistat,
+    PerimHumidistat,                  !-Name
+    Perim,                   !-Zone Name
+    PerimHumidMin,                !-Humidifying Relative Humidity Setpoint Schedule Name
+    PerimHumidMax; !-Dehumidifying Relative Humidity Setpoint Schedule Name
+
+Schedule:Constant,
+    PerimHumidMin,                !- Name
+    Any Number,              !- Schedule Type Limits Name
+    20;                      !- Hourly Value
+
+Schedule:Constant,
+    PerimHumidMax,                !- Name
+    Any Number,              !- Schedule Type Limits Name
+    80;                      !- Hourly Value
+
+! ------------------------ INFILTRATION
+ZoneInfiltration:DesignFlowRate,
+  PerimInfiltration,  !- Name
+  Perim,            !- Zone or ZoneList Name
+  On,                      !- Schedule Name
+  AirChanges/Hour,               !- Design Flow Rate Calculation Method
+  ,                        !- Design Flow Rate [m3/s] !-- .00756
+  ,                        !- Flow per Zone Floor Area {m3/s-m2}
+  ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+  0.35,                        !- Air Changes per Hour {1/hr}
+  1,               !- Constant Term Coefficient
+  0,           !- Temperature Term Coefficient
+  0,               !- Velocity Term Coefficient
+  0;           !- Velocity Squared Term Coefficient
+
+! ------------------------ DHW
+WaterUse:Equipment,
+    DHW Perim,        !- Name
+    DHW Perim,        !- End-Use Subcategory
+    1.13573200770337E-06,           !- Peak Flow Rate [m3/s]
+    Boston_Res_Y_Dhw,                    !- Flow Rate Fraction Schedule Name
+    DHW Supply Temperature Perim,  !- Target Temperature Schedule Name
+    DHW Supply Temperature Perim,  !- Hot Water Supply Temperature Schedule Name
+    DHW Mains Temperature Perim,  !- Cold Water Supply Temperature Schedule Name
+    ,                        !- Zone Name
+    ,                        !- Sensible Fraction Schedule Name
+    ;                        !- Latent Fraction Schedule Name
+
+Schedule:Constant,
+    DHW Supply Temperature Perim, !- Name
+    Temperature, !- Schedule Type Limits Name
+    55; !- Hourly Value
+Schedule:Constant,
+    DHW Mains Temperature Perim, !- Name
+    Temperature, !- Schedule Type Limits Name
+    16; !- Hourly Value
+
+! ------------------------ MASS
+InternalMass,
+      PerimInternalMass,                 !- Name of internal mass surface
+      Boston_Res_Thm_0,                                          !- Construction Name
+      Perim,                               !- Name of Associated Thermal Zone
+      7.50973817338552;                                        !- Total area exposed to Zone [m2]
+! ------------------------ GEOMETRY
+
+
+ ! FACE NORMAL  0.341904697406844 -0.939734631633385 0
+BuildingSurface:Detailed,!-Type
+Perim:f0, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Fac_0_MS,                       !-Construction Name
+Perim,            !-Zone Name
+Outdoors,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+SunExposed,              !-Sun Exposure
+WindExposed,             !-Wind Exposure
+0.5,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960212.7150, 1946141.1985, 76.2530,  !- X,Y,Z ==> Vertex
+960215.5342, 1946142.2242, 76.2530,  !- X,Y,Z ==> Vertex
+960215.5342, 1946142.2242, 79.3612,  !- X,Y,Z ==> Vertex
+960212.7150, 1946141.1985, 79.3612;  !- X,Y,Z ==> Vertex
+
+FenestrationSurface:Detailed,
+Perim:f0:w0, !-Name
+Window,                  !- Surface Type
+Boston_Dbl_Air_Cl,                    !- Construction Name
+Perim:f0, !- Building Surface Name
+,                        !- Outside Boundary Condition Object
+Autocalculate,                      !- View Factor to Ground
+,                        !- Shading Control Name
+,                       !- Frame and Divider Name
+1,                       !- Multiplier
+4,                       !-Number of Vertices
+
+960212.8090, 1946141.2327, 77.1030,  !- X,Y,Z ==> Vertex
+960215.4403, 1946142.1901, 77.1030,  !- X,Y,Z ==> Vertex
+960215.4403, 1946142.1901, 78.4351,  !- X,Y,Z ==> Vertex
+960212.8090, 1946141.2327, 78.4351;  !- X,Y,Z ==> Vertex
+
+ ! FACE NORMAL  -0.341904697398683 0.939734631636355 0
+BuildingSurface:Detailed,!-Type
+Perim:f1, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Perim,            !-Zone Name
+Surface,                !-Outside Boundary Condition
+Core:f0,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960214.5833, 1946144.8380, 76.2530,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 76.2530,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 79.3612,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  0.939734631652724 0.341904697353691 1.3674938696971E-11
+BuildingSurface:Detailed,!-Type
+Perim:f2, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Perim,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960215.5342, 1946142.2242, 76.2530,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 76.2530,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 79.3612,  !- X,Y,Z ==> Vertex
+960215.5342, 1946142.2242, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -0.939734631652724 -0.341904697353691 3.04631443895992E-11
+BuildingSurface:Detailed,!-Type
+Perim:f3, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Perim,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.7641, 1946143.8123, 76.2530,  !- X,Y,Z ==> Vertex
+960212.7150, 1946141.1985, 76.2530,  !- X,Y,Z ==> Vertex
+960212.7150, 1946141.1985, 79.3612,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -3.0367237385164E-16 8.34652020151006E-16 -1
+BuildingSurface:Detailed,!-Type
+Perim:f4, !-Name
+Floor,                    !-Surface Type
+Boston_Res_Inf_0,                       !-Construction Name
+Perim,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.8365, 1946143.6132, 76.2530,  !- X,Y,Z ==> Vertex
+960214.6557, 1946144.6390, 76.2530,  !- X,Y,Z ==> Vertex
+960215.5342, 1946142.2242, 76.2530,  !- X,Y,Z ==> Vertex
+960212.7150, 1946141.1985, 76.2530;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  2.42937898970918E-15 -6.67721616150674E-15 -1
+BuildingSurface:Detailed,!-Type
+Perim:f5, !-Name
+Floor,                    !-Surface Type
+Boston_Res_Gro_0,                       !-Construction Name
+Perim,            !-Zone Name
+Ground,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+1,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.7641, 1946143.8123, 76.2530,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 76.2530,  !- X,Y,Z ==> Vertex
+960214.6557, 1946144.6390, 76.2530,  !- X,Y,Z ==> Vertex
+960211.8365, 1946143.6132, 76.2530;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -6.0734474770328E-16 1.66930404030201E-15 1
+BuildingSurface:Detailed,!-Type
+Perim:f6, !-Name
+Ceiling,                    !-Surface Type
+Boston_Res_Inf_0,                       !-Construction Name
+Perim,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960215.5342, 1946142.2242, 79.3612,  !- X,Y,Z ==> Vertex
+960214.6557, 1946144.6390, 79.3612,  !- X,Y,Z ==> Vertex
+960211.8365, 1946143.6132, 79.3612,  !- X,Y,Z ==> Vertex
+960212.7150, 1946141.1985, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  4.85875797941836E-15 -1.33544323230135E-14 1
+BuildingSurface:Detailed,!-Type
+Perim:f7, !-Name
+Roof,                    !-Surface Type
+Boston_Res_Rof_0,                       !-Construction Name
+Perim,            !-Zone Name
+Outdoors,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+SunExposed,              !-Sun Exposure
+WindExposed,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960214.6557, 1946144.6390, 79.3612,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 79.3612,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 79.3612,  !- X,Y,Z ==> Vertex
+960211.8365, 1946143.6132, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+!------------------------------------------------ ZONE ----------------------------------------------------
+
+Zone,
+  Core,            !- Name
+  0,                       !- Rotation [deg]
+  0,                       !- X origin [m]
+  0,                       !- Y origin [m]
+  0,                       !- Z origin [m]
+  1,                       !- Type
+  1.0,                       !- Multiplier
+  ,                        !- Ceiling Height [m]
+  15.5870308160932,                   !- Volume [m3]
+  5.0147583761696,                   !- Area [m2]
+  TARP,                    !- Zone Inside Convection Algorithm
+  DOE-2;                   !- Zone Outside Convection Algorithm
+
+! ------------------------ PEOPLE
+People,
+    People Core,                 !- Name
+    Core,            !- Zone or ZoneList Name
+    Boston_Res_Y_Occ,        !- Number of People Schedule Name
+    People/Area,                  !- Number of People Calculation Method
+    ,                       !- Number of People
+    0.025,                        !- People per Zone Floor Area {person/m2}
+    ,                        !- Zone Floor Area per Person {m2/person}
+    0.3,                     !- Fraction Radiant
+    AUTOCALCULATE,           !- Sensible Heat Fraction
+    CorePeopleActivity,                    !- Activity Level Schedule Name
+    0.0000000382,            !- Carbon Dioxide Generation Rate {m3/s-W}
+    No,                      !- Enable ASHRAE 55 Comfort Warnings
+    ZoneAveraged,            !- Mean Radiant Temperature Calculation Type
+    ,                        !- Surface Name/Angle Factor List Name
+    CoreWorkEfficiency,  !- Work Efficiency Schedule Name
+    DynamicClothingModelASHRAE55,  !- Clothing Insulation Calculation Method
+    ,                        !- Clothing Insulation Calculation Method Schedule Name
+    ,                        !- Clothing Insulation Schedule Name
+    CoreAirVelocity,!- Air Velocity Schedule Name
+    AdaptiveASH55;           !- Thermal Comfort Model 1 Type
+
+Schedule:Constant, CorePeopleActivity, Any Number, 125.28; ! - Watts per person, uses Metabolic Rate input (1 met = 58 W/m2) and assumes adult body surface area of 1.8 m2
+Schedule:Constant, CoreAirVelocity, Any Number, 0.2;
+Schedule:Constant, CoreWorkEfficiency, Any Number, 0;
+
+
+! ------------------------ EQUIPMENT
+ElectricEquipment,
+  Core Equipment 1,!- Name
+  Core,            !- Zone or ZoneList Name
+  Boston_Res_Y_Plg,                    !- Schedule Name
+  Watts/Area,          !- Design Level Calculation Method
+  ,                !- Design Level [W]
+  4,                        !- Watts per Zone Floor Area [W/m2]
+  ,                        !- Watts per Person [W/person]
+  0,                       !- Fraction Latent
+  .2,                      !- Fraction Radiant
+  0,                       !- Fraction Lost
+  ;                        !- End-Use Subcategory
+
+! ------------------------ LIGHTS
+Lights,
+  Core General lighting,   !- Name
+  Core,                    !- Zone or ZoneList Name
+  Boston_Res_Y_Lgt,          !- Schedule Name
+  Watts/Area,              !- Design Level Calculation Method
+  ,                        !- Lighting Level [W]
+  7,         !- Watts per Zone Floor Area [W/m2]
+  ,                        !- Watts per Person [W/person]
+  0,                       !- Return Air Fraction
+  .42,                     !- Fraction Radiant
+  .18,                     !- Fraction Visible
+  1,                       !- Fraction Replaceable
+  ;                        !- End-Use Subcategory
+
+
+
+! ------------------------ HVAC
+
+Schedule:Constant,
+  CoreHeating_SP_Sch, !- Name
+  Temperature, !- Schedule Type Limits Name
+  20; !- Hourly Value
+
+Schedule:Constant,
+  CoreCooling_SP_Sch, !- Name
+  Temperature, !- Schedule Type Limits Name
+  24; !- Hourly Value
+
+ZoneControl:Thermostat,
+  Core Thermostat, !- Name
+  Core,            !- Zone or ZoneList Name
+  CoreZoneControlTypeSched, !- Control Type Schedule Name
+  ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+  Dual Setpoint - Zone Core;  !- Control 1 Name
+
+Schedule:Constant,
+  CoreZoneControlTypeSched, !- Name
+  Any Number, !- Schedule Type Limits Name
+  4; !- Hourly Value
+
+ThermostatSetpoint:DualSetpoint,
+  Dual Setpoint - Zone Core,  !- Name
+  CoreHeating_SP_Sch,  !- Heating Setpoint Temperature Schedule Name
+  CoreCooling_SP_Sch;  !- Cooling Setpoint Temperature Schedule Name
+
+ZoneHVAC:EquipmentConnections,
+  Core,            !- Zone Name
+  Core Equipment,  !- Zone Conditioning Equipment List Name
+  Core Inlets,     !- Zone Air Inlet Node or NodeList Name
+  ,                        !- Zone Air Exhaust Node or NodeList Name
+  Node Core Zone,  !- Zone Air Node Name
+  Node Core Out;   !- Zone Return Air Node Name
+
+ZoneHVAC:EquipmentList,
+  Core Equipment,  !- Name
+  ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
+  Core Ideal Loads Air,  !- Zone Equipment 1 Name
+  1,                       !- Zone Equipment 1 Cooling Sequence
+  1;                       !- Zone Equipment 1 Heating or No-Load Sequence
+
+NodeList,
+  Core Inlets,     !- Name
+  Node Core In;    !- Node 1 Name
+
+ZoneHVAC:IdealLoadsAirSystem,
+  Core Ideal Loads Air,  !- Name
+  ,                        !- Availability Schedule Name
+  Node Core In,    !- Zone Supply Air Node Name
+  ,                        !- Zone Exhaust Air Node Name
+  30,                      !- Maximum Heating Supply Air Temperature {C}
+  18,                      !- Minimum Cooling Supply Air Temperature {C}
+  0.01,                    !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+  0.008,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
+  NoLimit,                 !- Heating Limit
+  100,                        !- Maximum Heating Air Flow Rate [m3/s]
+  ,        				   !- Maximum Sensible Heating Capacity [W]
+  NoLimit,                 !- Cooling Limit
+  100 ,                        !- Maximum Cooling Air Flow Rate [m3/s]
+  ,                        !- Maximum Total Cooling Capacity [W]
+  Boston_Res_Y_Het,  !- Heating Availability Schedule Name
+  Boston_Res_Y_Col,  !- Cooling Availability Schedule Name
+  None,                    !- Dehumidification Control Type
+  ,                        !- Cooling Sensible Heat Ratio {dimensionless}
+  None,                    !- Humidification Control Type
+  ,                        !- Design Specification Outdoor Air Object Name
+  ,                        !- Outdoor Air Inlet Node Name
+  ,                        !- Demand Controlled Ventilation Type
+  NoEconomizer,                        !- Outdoor Air Economizer Type
+  None,                        !- Heat Recovery Type
+  0.7,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
+  0.65;                        !- Latent Heat Recovery Effectiveness {dimensionless}
+
+
+ZoneControl:Humidistat,
+    CoreHumidistat,                  !-Name
+    Core,                   !-Zone Name
+    CoreHumidMin,                !-Humidifying Relative Humidity Setpoint Schedule Name
+    CoreHumidMax; !-Dehumidifying Relative Humidity Setpoint Schedule Name
+
+Schedule:Constant,
+    CoreHumidMin,                !- Name
+    Any Number,              !- Schedule Type Limits Name
+    20;                      !- Hourly Value
+
+Schedule:Constant,
+    CoreHumidMax,                !- Name
+    Any Number,              !- Schedule Type Limits Name
+    80;                      !- Hourly Value
+
+! ------------------------ INFILTRATION
+ZoneInfiltration:DesignFlowRate,
+  CoreInfiltration,  !- Name
+  Core,            !- Zone or ZoneList Name
+  On,                      !- Schedule Name
+  AirChanges/Hour,               !- Design Flow Rate Calculation Method
+  ,                        !- Design Flow Rate [m3/s] !-- .00756
+  ,                        !- Flow per Zone Floor Area {m3/s-m2}
+  ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+  0.35,                        !- Air Changes per Hour {1/hr}
+  1,               !- Constant Term Coefficient
+  0,           !- Temperature Term Coefficient
+  0,               !- Velocity Term Coefficient
+  0;           !- Velocity Squared Term Coefficient
+
+! ------------------------ DHW
+WaterUse:Equipment,
+    DHW Core,        !- Name
+    DHW Core,        !- End-Use Subcategory
+    6.82564334534195E-07,           !- Peak Flow Rate [m3/s]
+    Boston_Res_Y_Dhw,                    !- Flow Rate Fraction Schedule Name
+    DHW Supply Temperature Core,  !- Target Temperature Schedule Name
+    DHW Supply Temperature Core,  !- Hot Water Supply Temperature Schedule Name
+    DHW Mains Temperature Core,  !- Cold Water Supply Temperature Schedule Name
+    ,                        !- Zone Name
+    ,                        !- Sensible Fraction Schedule Name
+    ;                        !- Latent Fraction Schedule Name
+
+Schedule:Constant,
+    DHW Supply Temperature Core, !- Name
+    Temperature, !- Schedule Type Limits Name
+    55; !- Hourly Value
+Schedule:Constant,
+    DHW Mains Temperature Core, !- Name
+    Temperature, !- Schedule Type Limits Name
+    16; !- Hourly Value
+
+! ------------------------ MASS
+InternalMass,
+      CoreInternalMass,                 !- Name of internal mass surface
+      Boston_Res_Thm_0,                                          !- Construction Name
+      Core,                               !- Name of Associated Thermal Zone
+      4.51328253855264;                                        !- Total area exposed to Zone [m2]
+! ------------------------ GEOMETRY
+
+
+ ! FACE NORMAL  0.341904697398683 -0.939734631636355 0
+BuildingSurface:Detailed,!-Type
+Core:f0, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Core,            !-Zone Name
+Surface,                !-Outside Boundary Condition
+Perim:f1,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.7641, 1946143.8123, 76.2530,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 76.2530,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 79.3612,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -0.341904697399845 0.939734631635932 0
+BuildingSurface:Detailed,!-Type
+Core:f1, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Core,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960214.0117, 1946146.4089, 76.2530,  !- X,Y,Z ==> Vertex
+960211.1925, 1946145.3831, 76.2530,  !- X,Y,Z ==> Vertex
+960211.1925, 1946145.3831, 79.3612,  !- X,Y,Z ==> Vertex
+960214.0117, 1946146.4089, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  0.939734631653788 0.341904697350765 -2.3625675041044E-11
+BuildingSurface:Detailed,!-Type
+Core:f2, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Core,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960214.5833, 1946144.8380, 76.2530,  !- X,Y,Z ==> Vertex
+960214.0117, 1946146.4089, 76.2530,  !- X,Y,Z ==> Vertex
+960214.0117, 1946146.4089, 79.3612,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -0.939734631655062 -0.341904697347266 -2.36256750409606E-11
+BuildingSurface:Detailed,!-Type
+Core:f3, !-Name
+Wall,                    !-Surface Type
+Boston_Res_Par_0,                       !-Construction Name
+Core,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.1925, 1946145.3831, 76.2530,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 76.2530,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 79.3612,  !- X,Y,Z ==> Vertex
+960211.1925, 1946145.3831, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  6.0734474771478E-16 -1.66930404026257E-15 -1
+BuildingSurface:Detailed,!-Type
+Core:f4, !-Name
+Floor,                    !-Surface Type
+Boston_Res_Inf_0,                       !-Construction Name
+Core,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.2361, 1946145.2635, 76.2530,  !- X,Y,Z ==> Vertex
+960214.0553, 1946146.2892, 76.2530,  !- X,Y,Z ==> Vertex
+960214.5833, 1946144.8380, 76.2530,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 76.2530;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -1.94350319394131E-14 5.34177293154294E-14 -1
+BuildingSurface:Detailed,!-Type
+Core:f5, !-Name
+Floor,                    !-Surface Type
+Boston_Res_Gro_0,                       !-Construction Name
+Core,            !-Zone Name
+Ground,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+1,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960211.1925, 1946145.3831, 76.2530,  !- X,Y,Z ==> Vertex
+960214.0117, 1946146.4089, 76.2530,  !- X,Y,Z ==> Vertex
+960214.0553, 1946146.2892, 76.2530,  !- X,Y,Z ==> Vertex
+960211.2361, 1946145.2635, 76.2530;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -6.0734474771478E-16 1.66930404026257E-15 1
+BuildingSurface:Detailed,!-Type
+Core:f6, !-Name
+Ceiling,                    !-Surface Type
+Boston_Res_Inf_0,                       !-Construction Name
+Core,            !-Zone Name
+Adiabatic,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+NoSun,              !-Sun Exposure
+NoWind,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960214.5833, 1946144.8380, 79.3612,  !- X,Y,Z ==> Vertex
+960214.0553, 1946146.2892, 79.3612,  !- X,Y,Z ==> Vertex
+960211.2361, 1946145.2635, 79.3612,  !- X,Y,Z ==> Vertex
+960211.7641, 1946143.8123, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+ ! FACE NORMAL  -1.94350319394131E-14 5.34177293154294E-14 1
+BuildingSurface:Detailed,!-Type
+Core:f7, !-Name
+Roof,                    !-Surface Type
+Boston_Res_Rof_0,                       !-Construction Name
+Core,            !-Zone Name
+Outdoors,                !-Outside Boundary Condition
+,                        !-Outside Boundary Condition Object
+SunExposed,              !-Sun Exposure
+WindExposed,             !-Wind Exposure
+0,                      !-View Factor to Ground
+4,                       !-Number of Vertices
+
+960214.0553, 1946146.2892, 79.3612,  !- X,Y,Z ==> Vertex
+960214.0117, 1946146.4089, 79.3612,  !- X,Y,Z ==> Vertex
+960211.1925, 1946145.3831, 79.3612,  !- X,Y,Z ==> Vertex
+960211.2361, 1946145.2635, 79.3612;  !- X,Y,Z ==> Vertex
+
+
+
+! ------------------------ OUTPUTS
+
+Output:Variable,*,Zone People Total Heating Energy,Monthly;
+Output:Variable,*,Zone Lights Electric Energy,Monthly;
+Output:Variable,*,Zone Electric Equipment Electric Energy,Monthly;
+Output:Variable,*,Zone Windows Total Transmitted Solar Radiation Energy,Monthly;
+Output:Variable,*,Zone Mean Radiant Temperature,Monthly;
+Output:Variable,*,Zone Mean Air Temperature,Monthly;
+Output:Variable,*,Zone Operative Temperature,Monthly;
+Output:Variable,*,Zone Infiltration Total Heat Loss Energy,Monthly;
+Output:Variable,*,Zone Infiltration Total Heat Gain Energy,Monthly;
+Output:Variable,*,Zone Ventilation Total Heat Loss Energy,Monthly;
+Output:Variable,*,Zone Ventilation Total Heat Gain Energy,Monthly;
+Output:Variable,*,Zone Air Temperature,Monthly;
+Output:Variable,*,Zone Air Relative Humidity,Monthly;
+Output:Variable,*,Zone Ideal Loads Supply Air Total Heating Energy,Monthly;
+Output:Variable,*,Zone Ideal Loads Supply Air Total Cooling Energy,Monthly;
+Output:Variable,*,Zone Ideal Loads Zone Total Heating Energy,Monthly;
+Output:Variable,*,Water Use Equipment Heating Energy,Monthly;
+Output:Variable,*,Zone Infiltration Air Change Rate,Monthly;
+Output:Variable,*,Zone Ventilation Air Change Rate,Monthly;
+
+
+Output:VariableDictionary, IDF;
+Output:Surfaces:Drawing,DXF,Triangulate3DFace;
+Output:Surfaces:List,Details;
+Output:Constructions,Construction;
+!Output:Diagnostics,DisplayExtraWarnings;
+!Output:Diagnostics,DisplayUnusedSchedules;
+!Output:Diagnostics,DisplayUnusedObjects;
+Output:Diagnostics,DisplayAdvancedReportVariables;
+
+Output:Table:SummaryReports,
+    EnvelopeSummary,         !- Report 1 Name
+    InputVerificationandResultsSummary,  !- Report 2 Name
+    ShadingSummary;          !- Report 3 Name

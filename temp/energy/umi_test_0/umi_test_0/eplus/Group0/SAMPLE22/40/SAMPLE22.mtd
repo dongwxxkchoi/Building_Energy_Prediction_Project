@@ -1,0 +1,344 @@
+
+ Meters for 10,PERIM GENERAL LIGHTING:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIM [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PERIM [J]
+  OnMeter=General:InteriorLights:Electricity [J]
+
+ Meters for 72,CORE GENERAL LIGHTING:Lights Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:CORE [J]
+  OnMeter=General:InteriorLights:Electricity [J]
+
+ Meters for 94,PERIM EQUIPMENT 1:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PERIM [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:PERIM [J]
+  OnMeter=General:InteriorEquipment:Electricity [J]
+
+ Meters for 126,CORE EQUIPMENT 1:Electric Equipment Electric Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:CORE [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:CORE [J]
+  OnMeter=General:InteriorEquipment:Electricity [J]
+
+ Meters for 152,PERIM:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIM [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PERIM [J]
+
+ Meters for 203,PERIM:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PERIM [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PERIM [J]
+
+ Meters for 226,CORE:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:CORE [J]
+
+ Meters for 247,CORE:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:CORE [J]
+
+ Meters for 260,PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 291,PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 323,CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 324,CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 326,DHW PERIM:Water Use Equipment Total Volume [m3]
+  OnMeter=Water:Facility [m3]
+  OnMeter=Water:Plant [m3]
+  OnMeter=WaterSystems:Water [m3]
+  OnMeter=DHW Perim:WaterSystems:Water [m3]
+
+ Meters for 367,DHW PERIM:Water Use Equipment Mains Water Volume [m3]
+  OnMeter=MainsWater:Facility [m3]
+  OnMeter=MainsWater:Plant [m3]
+  OnMeter=WaterSystems:MainsWater [m3]
+  OnMeter=DHW Perim:WaterSystems:MainsWater [m3]
+
+ Meters for 408,DHW PERIM:Water Use Equipment Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:Plant [J]
+  OnMeter=WaterSystems:DistrictHeating [J]
+  OnMeter=DHW Perim:WaterSystems:DistrictHeating [J]
+
+ Meters for 439,DHW CORE:Water Use Equipment Total Volume [m3]
+  OnMeter=Water:Facility [m3]
+  OnMeter=Water:Plant [m3]
+  OnMeter=WaterSystems:Water [m3]
+  OnMeter=DHW Core:WaterSystems:Water [m3]
+
+ Meters for 450,DHW CORE:Water Use Equipment Mains Water Volume [m3]
+  OnMeter=MainsWater:Facility [m3]
+  OnMeter=MainsWater:Plant [m3]
+  OnMeter=WaterSystems:MainsWater [m3]
+  OnMeter=DHW Core:WaterSystems:MainsWater [m3]
+
+ Meters for 461,DHW CORE:Water Use Equipment Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:Plant [J]
+  OnMeter=WaterSystems:DistrictHeating [J]
+  OnMeter=DHW Core:WaterSystems:DistrictHeating [J]
+
+ Meters for 472,Whole Building:Facility Total Purchased Electric Energy [J]
+  OnMeter=ElectricityPurchased:Facility [J]
+  OnMeter=ElectricityPurchased:Plant [J]
+  OnMeter=Cogeneration:ElectricityPurchased [J]
+
+ Meters for 503,Whole Building:Facility Total Surplus Electric Energy [J]
+  OnMeter=ElectricitySurplusSold:Facility [J]
+  OnMeter=ElectricitySurplusSold:Plant [J]
+  OnMeter=Cogeneration:ElectricitySurplusSold [J]
+
+ Meters for 534,Whole Building:Facility Net Purchased Electric Energy [J]
+  OnMeter=ElectricityNet:Facility [J]
+  OnMeter=ElectricityNet:Plant [J]
+  OnMeter=Cogeneration:ElectricityNet [J]
+
+ Meters for 565,Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 586,Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 587,Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ For Meter=Electricity:Facility [J], ResourceType=Electricity, contents are:
+  PERIM GENERAL LIGHTING:Lights Electric Energy
+  CORE GENERAL LIGHTING:Lights Electric Energy
+  PERIM EQUIPMENT 1:Electric Equipment Electric Energy
+  CORE EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=Electricity:Building [J], ResourceType=Electricity, Group=Building, contents are:
+  PERIM GENERAL LIGHTING:Lights Electric Energy
+  CORE GENERAL LIGHTING:Lights Electric Energy
+  PERIM EQUIPMENT 1:Electric Equipment Electric Energy
+  CORE EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=Electricity:Zone:PERIM [J], ResourceType=Electricity, Group=Zone, contents are:
+  PERIM GENERAL LIGHTING:Lights Electric Energy
+  PERIM EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity [J], ResourceType=Electricity, EndUse=InteriorLights, contents are:
+  PERIM GENERAL LIGHTING:Lights Electric Energy
+  CORE GENERAL LIGHTING:Lights Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:PERIM [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PERIM GENERAL LIGHTING:Lights Electric Energy
+
+ For Meter=General:InteriorLights:Electricity [J], ResourceType=Electricity, EndUse=InteriorLights, contents are:
+  PERIM GENERAL LIGHTING:Lights Electric Energy
+  CORE GENERAL LIGHTING:Lights Electric Energy
+
+ For Meter=Electricity:Zone:CORE [J], ResourceType=Electricity, Group=Zone, contents are:
+  CORE GENERAL LIGHTING:Lights Electric Energy
+  CORE EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=InteriorLights:Electricity:Zone:CORE [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  CORE GENERAL LIGHTING:Lights Electric Energy
+
+ For Meter=InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  PERIM EQUIPMENT 1:Electric Equipment Electric Energy
+  CORE EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:PERIM [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PERIM EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=General:InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  PERIM EQUIPMENT 1:Electric Equipment Electric Energy
+  CORE EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=InteriorEquipment:Electricity:Zone:CORE [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  CORE EQUIPMENT 1:Electric Equipment Electric Energy
+
+ For Meter=EnergyTransfer:Facility [J], ResourceType=EnergyTransfer, contents are:
+  PERIM:Zone Air System Sensible Heating Energy
+  PERIM:Zone Air System Sensible Cooling Energy
+  CORE:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Building [J], ResourceType=EnergyTransfer, Group=Building, contents are:
+  PERIM:Zone Air System Sensible Heating Energy
+  PERIM:Zone Air System Sensible Cooling Energy
+  CORE:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PERIM [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PERIM:Zone Air System Sensible Heating Energy
+  PERIM:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Heating, contents are:
+  PERIM:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Heating Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PERIM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PERIM:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Cooling, contents are:
+  PERIM:Zone Air System Sensible Cooling Energy
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PERIM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PERIM:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=DistrictHeating:Facility [J], ResourceType=DistrictHeating, contents are:
+  PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy
+  CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy
+  DHW PERIM:Water Use Equipment Heating Energy
+  DHW CORE:Water Use Equipment Heating Energy
+
+ For Meter=DistrictHeating:HVAC [J], ResourceType=DistrictHeating, Group=HVAC, contents are:
+  PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy
+  CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy
+
+ For Meter=Heating:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=Heating, contents are:
+  PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy
+  CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Heating Energy
+
+ For Meter=DistrictCooling:Facility [J], ResourceType=DistrictCooling, contents are:
+  PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy
+  CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=DistrictCooling:HVAC [J], ResourceType=DistrictCooling, Group=HVAC, contents are:
+  PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy
+  CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=Cooling:DistrictCooling [J], ResourceType=DistrictCooling, EndUse=Cooling, contents are:
+  PERIM IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy
+  CORE IDEAL LOADS AIR:Zone Ideal Loads Supply Air Total Cooling Energy
+
+ For Meter=Water:Facility [m3], ResourceType=Water, contents are:
+  DHW PERIM:Water Use Equipment Total Volume
+  DHW CORE:Water Use Equipment Total Volume
+
+ For Meter=Water:Plant [m3], ResourceType=Water, Group=Plant, contents are:
+  DHW PERIM:Water Use Equipment Total Volume
+  DHW CORE:Water Use Equipment Total Volume
+
+ For Meter=WaterSystems:Water [m3], ResourceType=Water, EndUse=WaterSystems, contents are:
+  DHW PERIM:Water Use Equipment Total Volume
+  DHW CORE:Water Use Equipment Total Volume
+
+ For Meter=DHW Perim:WaterSystems:Water [m3], ResourceType=Water, EndUse=WaterSystems, contents are:
+  DHW PERIM:Water Use Equipment Total Volume
+
+ For Meter=MainsWater:Facility [m3], ResourceType=MainsWater, contents are:
+  DHW PERIM:Water Use Equipment Mains Water Volume
+  DHW CORE:Water Use Equipment Mains Water Volume
+
+ For Meter=MainsWater:Plant [m3], ResourceType=MainsWater, Group=Plant, contents are:
+  DHW PERIM:Water Use Equipment Mains Water Volume
+  DHW CORE:Water Use Equipment Mains Water Volume
+
+ For Meter=WaterSystems:MainsWater [m3], ResourceType=MainsWater, EndUse=WaterSystems, contents are:
+  DHW PERIM:Water Use Equipment Mains Water Volume
+  DHW CORE:Water Use Equipment Mains Water Volume
+
+ For Meter=DHW Perim:WaterSystems:MainsWater [m3], ResourceType=MainsWater, EndUse=WaterSystems, contents are:
+  DHW PERIM:Water Use Equipment Mains Water Volume
+
+ For Meter=DistrictHeating:Plant [J], ResourceType=DistrictHeating, Group=Plant, contents are:
+  DHW PERIM:Water Use Equipment Heating Energy
+  DHW CORE:Water Use Equipment Heating Energy
+
+ For Meter=WaterSystems:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=WaterSystems, contents are:
+  DHW PERIM:Water Use Equipment Heating Energy
+  DHW CORE:Water Use Equipment Heating Energy
+
+ For Meter=DHW Perim:WaterSystems:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=WaterSystems, contents are:
+  DHW PERIM:Water Use Equipment Heating Energy
+
+ For Meter=DHW Core:WaterSystems:Water [m3], ResourceType=Water, EndUse=WaterSystems, contents are:
+  DHW CORE:Water Use Equipment Total Volume
+
+ For Meter=DHW Core:WaterSystems:MainsWater [m3], ResourceType=MainsWater, EndUse=WaterSystems, contents are:
+  DHW CORE:Water Use Equipment Mains Water Volume
+
+ For Meter=DHW Core:WaterSystems:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=WaterSystems, contents are:
+  DHW CORE:Water Use Equipment Heating Energy
+
+ For Meter=ElectricityPurchased:Facility [J], ResourceType=ElectricityPurchased, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=ElectricityPurchased:Plant [J], ResourceType=ElectricityPurchased, Group=Plant, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=Cogeneration:ElectricityPurchased [J], ResourceType=ElectricityPurchased, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Total Purchased Electric Energy
+
+ For Meter=ElectricitySurplusSold:Facility [J], ResourceType=ElectricitySurplusSold, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=ElectricitySurplusSold:Plant [J], ResourceType=ElectricitySurplusSold, Group=Plant, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=Cogeneration:ElectricitySurplusSold [J], ResourceType=ElectricitySurplusSold, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Total Surplus Electric Energy
+
+ For Meter=ElectricityNet:Facility [J], ResourceType=ElectricityNet, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=ElectricityNet:Plant [J], ResourceType=ElectricityNet, Group=Plant, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=Cogeneration:ElectricityNet [J], ResourceType=ElectricityNet, EndUse=Cogeneration, contents are:
+  Whole Building:Facility Net Purchased Electric Energy
+
+ For Meter=Carbon Equivalent:Facility [kg], ResourceType=Carbon Equivalent, contents are:
+  Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass
+
+ For Meter=CarbonEquivalentEmissions:Carbon Equivalent [kg], ResourceType=Carbon Equivalent, EndUse=CarbonEquivalentEmissions, contents are:
+  Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass

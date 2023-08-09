@@ -1,0 +1,196 @@
+Shadowing Combinations
+..Solar Distribution=FullExterior
+..In the following, only the first 10 reference surfaces will be shown.
+..But all surfaces are used in the calculations.
+==================================
+Surface=SHADER_0 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=8
+..Surface=SHADER_1
+..Surface=Mir-SHADER_1
+..Surface=SHADER_2
+..Surface=Mir-SHADER_2
+..Surface=SHADER_3
+..Surface=SHADER_4
+..Surface=Mir-SHADER_4
+..Surface=PERIM:F0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-SHADER_0 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=SHADER_1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=5
+..Surface=SHADER_0
+..Surface=Mir-SHADER_2
+..Surface=SHADER_3
+..Surface=Mir-SHADER_4
+..Surface=PERIM:F0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-SHADER_1 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=1
+..Surface=SHADER_0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=SHADER_2 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=4
+..Surface=SHADER_0
+..Surface=SHADER_3
+..Surface=Mir-SHADER_4
+..Surface=PERIM:F0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-SHADER_2 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=2
+..Surface=SHADER_0
+..Surface=SHADER_1
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=SHADER_3 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=4
+..Surface=SHADER_0
+..Surface=SHADER_1
+..Surface=SHADER_2
+..Surface=PERIM:F0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-SHADER_3 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=1
+..Surface=Mir-SHADER_4
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=SHADER_4 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=2
+..Surface=SHADER_0
+..Surface=PERIM:F0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=Mir-SHADER_4 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=4
+..Surface=SHADER_0
+..Surface=SHADER_1
+..Surface=SHADER_2
+..Surface=Mir-SHADER_3
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F0 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=5
+..Surface=SHADER_0
+..Surface=SHADER_1
+..Surface=SHADER_2
+..Surface=SHADER_3
+..Surface=SHADER_4
+Number of back surfaces=0
+Number of receiving sub surfaces=1
+....Surface=PERIM:F0:W0
+==================================
+Surface=PERIM:F0:W0 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F2 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F3 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F4 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F5 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F6 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIM:F7 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=5
+..Surface=SHADER_0
+..Surface=SHADER_1
+..Surface=SHADER_2
+..Surface=SHADER_3
+..Surface=SHADER_4
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=PERIMINTERNALMASS is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F0 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F1 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F2 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F3 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F4 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F5 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F6 is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=CORE:F7 is used as Receiving Surface in calculations and is convex.
+Number of general casting surfaces=5
+..Surface=SHADER_0
+..Surface=SHADER_1
+..Surface=SHADER_2
+..Surface=SHADER_3
+..Surface=SHADER_4
+Number of back surfaces=0
+Number of receiving sub surfaces=0
+==================================
+Surface=COREINTERNALMASS is not used as Receiving Surface in calculations.
+Number of general casting surfaces=0
+Number of back surfaces=0
+Number of receiving sub surfaces=0
