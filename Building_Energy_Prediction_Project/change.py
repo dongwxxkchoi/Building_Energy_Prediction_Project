@@ -22,6 +22,7 @@ class Modifier:
             self.json_data = json.load(f)
 
         self.opaque_materials = self.get_opaque_materials_info()
+        self.glazing_materials = self.get_glazing_materials_info()
 
     def get_dict_keys(self):
         return self.id_template_dict.keys()
@@ -89,159 +90,173 @@ class Modifier:
         return facade_ref, ground_ref, roof_ref
 
     def get_building_conductivity(self, template_name):
-        print("template name:", template_name)
         template_ref, window_ref = self.get_template_ref(template_name)
         construction_ref, _, _, _ = self.get_zone_ref(template_ref)
         facade_ref, ground_ref, roof_ref = self.get_house_parts_ref(construction_ref)
+
         conductivity_dict = dict()
         facade_layers = []
         ground_layers = []
         roof_layers = []
+        window_layers = []
 
         facade_thermal_resist = 0
         ground_thermal_resist = 0
         roof_thermal_resist = 0
+        window_thermal_resist = 0
+
 
         # layer에 접근
         for structure in self.json_data['OpaqueConstructions']:
-
             if structure['$id'] == facade_ref:
-                for material in structure['Layers']:
-                    material_ref = material['Material']['$ref']
-                    facade_layers.append(material['Material']['$ref'])
-                    facade_thermal_resist += material['Thickness'] / self.opaque_materials[material_ref]
+                for layer in structure['Layers']:
+                    material_ref = layer['Material']['$ref']
+                    facade_layers.append(layer['Material']['$ref'])
+                    facade_thermal_resist += layer['Thickness'] / self.opaque_materials[material_ref][-1]
 
                 facade_thermal_resist = 1 / facade_thermal_resist
 
             if structure['$id'] == ground_ref:
-                for material in structure['Layers']:
-                    material_ref = material['Material']['$ref']
-                    ground_layers.append(material['Material']['$ref'])
-                    ground_thermal_resist += material['Thickness'] / self.opaque_materials[material_ref]
+                for layer in structure['Layers']:
+                    material_ref = layer['Material']['$ref']
+                    ground_layers.append(layer['Material']['$ref'])
+                    ground_thermal_resist += layer['Thickness'] / self.opaque_materials[material_ref][-1]
 
                 ground_thermal_resist = 1 / ground_thermal_resist
 
             if structure['$id'] == roof_ref:
-                for material in structure['Layers']:
-                    material_ref = material['Material']['$ref']
-                    roof_layers.append(material['Material']['$ref'])
-                    roof_thermal_resist += material['Thickness'] / self.opaque_materials[material_ref]
+                for layer in structure['Layers']:
+                    material_ref = layer['Material']['$ref']
+                    roof_layers.append(layer['Material']['$ref'])
+                    roof_thermal_resist += layer['Thickness'] / self.opaque_materials[material_ref][-1]
 
                 roof_thermal_resist = 1 / roof_thermal_resist
 
-        print(facade_thermal_resist, ground_thermal_resist, roof_thermal_resist)
+        for structure in self.json_data['WindowConstructions']:
+            if structure['$id'] == window_ref:
+                for layer in structure['Layers']:
+                    material_ref = layer['Material']['$ref']
+                    window_layers.append(layer['Material']['$ref'])
+                    if material_ref == '9': ## 유리
+                        window_thermal_resist += layer['Thickness'] / self.glazing_materials[material_ref][-1]
+                    elif material_ref == '2': ## ARGON
+                        window_thermal_resist += layer['Thickness'] / 0.016
 
-        return facade_layers, ground_layers, roof_layers
+                window_thermal_resist = 1 / window_thermal_resist
+
+        return facade_thermal_resist, roof_thermal_resist, ground_thermal_resist, window_thermal_resist
 
     def get_opaque_materials_info(self):
         material_conductivity = dict()
         for material_info in self.json_data['OpaqueMaterials']:
-            material_conductivity[material_info['$id']] = material_info['Conductivity']
+            material_conductivity[material_info['$id']] = [material_info['Name'], material_info['Conductivity']]
 
         return material_conductivity
 
-    def modify_template(self, template_name, sample):
+    def get_glazing_materials_info(self):
+        material_conductivity = dict()
+        for material_info in self.json_data['GlazingMaterials']:
+            material_conductivity[material_info['$id']] = [material_info['Name'], material_info['Conductivity']]
+
+        return material_conductivity
+
+    def modify_json(self, keys, data):
+        if len(keys) == 1:
+            key = keys
+            self.json_data[key] = data
+        elif len(keys) == 2:
+            key1, key2 = keys
+            self.json_data[key1][key2] = data
+        elif len(keys) == 3:
+            key1, key2, key3 = keys
+            self.json_data[key1][key2][key3] = data
+        elif len(keys) == 4:
+            key1, key2, key3, key4 = keys
+            self.json_data[key1][key2][key3][key4] = data
+        elif len(keys) == 5:
+            key1, key2, key3, key4, key5 = keys
+            self.json_data[key1][key2][key3][key4][key5] = data
+
+    def modify_template(self, template_name, sample, res=False):
         # '열관류율(외벽)', '열관류율(지붕)', '열관류율(바닥)', '열관류율(창호)', '창면적비', '실내 냉방 설정 온도', '실내 난방 설정 온도', '재실밀도', '기기밀도', '조명밀도', '침기율'
         # zones에 reference 정보를 통해 사용
 
-        print("template name:", template_name)
+        # print("template name:", template_name)
         template_ref, window_ref = self.get_template_ref(template_name)
+        constructions_ref, condition_ref, loads_ref, ventil_ref = self.get_zone_ref(template_ref)
+        facade_ref, ground_ref, roof_ref = self.get_house_parts_ref(constructions_ref)
 
-        for template_info in self.json_data['Zones']:
-            if template_info['$id'] == template_ref:
-                constructions_ref = template_info['Constructions']['$ref']
-                condition_ref = template_info['Conditioning']['$ref']
-                loads_ref = template_info['Loads']['$ref']
-                ventil_ref = template_info['Ventilation']['$ref']
-
-        for construction_set in self.json_data['ZoneConstructionSets']:
-            print(construction_set)
-            if construction_set['$id'] == constructions_ref:
-                facade_ref = construction_set['Facade']['$ref']
-                ground_ref = construction_set['Ground']['$ref']
-                roof_ref = construction_set['Roof']['$ref']
-                int_floor_ref = construction_set['Slab']['$ref']
-
-
-        XPS_REF = 20
-        WINDOW_REF = 7
+        XPS_REF = '20'
+        ARGON_REF = '2'
 
         # 0 ~ 3 Conductivity
         # Conductivity가 아니라 layer Thickness를 조절함
 
-
-        for structure in self.json_data['OpaqueConstructions']:
-            for layer in structure['Layers']:
-                layer['Material']['$ref']
-                layer['Thickness']
+        for idx_outer, structure in enumerate(self.json_data['OpaqueConstructions']):
             if structure['$id'] == facade_ref:
-                for material in structure['Layers']:
-                    if material['Material']['$ref'] == XPS_REF:
-                        pass
-            if structure['$id'] == ground_ref:
-                for material in structure['Layers']:
-                    if material['Material']['$ref'] == XPS_REF:
-                        pass
+                for idx_inner, layer in enumerate(structure['Layers']):
+                    if layer['Material']['$ref'] == XPS_REF:
+                        self.modify_json(['OpaqueConstructions', idx_outer, 'Layers', idx_inner, 'Thickness'], sample[0])
             if structure['$id'] == roof_ref:
-                for material in structure['Layers']:
-                    if material['Material']['$ref'] == XPS_REF:
-                        pass
+                for idx_inner, layer in enumerate(structure['Layers']):
+                    if layer['Material']['$ref'] == XPS_REF:
+                        if res:
+                            self.modify_json(['OpaqueConstructions', idx_outer, 'Layers', idx_inner, 'Thickness'], sample[2])
+                        else:
+                            self.modify_json(['OpaqueConstructions', idx_outer, 'Layers', idx_inner, 'Thickness'], sample[1])
+            if structure['$id'] == ground_ref: # Off, Ret
+                for idx_inner, layer in enumerate(structure['Layers']):
+                    if layer['Material']['$ref'] == XPS_REF:
+                        self.modify_json(['OpaqueConstructions', idx_outer, 'Layers', idx_inner, 'Thickness'], sample[3])
 
-        # for structure in self.json_data['WindowConstructions']:
-        #     if structure['$id'] == window_ref:
-        #         for layer in structure['Layers']:
-        #             if layer['Material']['$ref'] == WINDOW_REF:
-        #                 layer['Thickness'] = sample[3]
-
+        for idx_outer, structure in enumerate(self.json_data['WindowConstructions']):
+            if structure['$id'] == window_ref:
+                for idx_inner, layer in enumerate(structure['Layers']):
+                    if layer['Material']['$ref'] == ARGON_REF:
+                        self.modify_json(['WindowConstructions', idx_outer, 'Layers', idx_inner, 'Thickness'], sample[4])
 
         # 4 BuildingTemplates의 'DefaultWindowToWallRatio'
-        for building_template_info in self.json_data['BuildingTemplates']:
+        for idx, building_template_info in enumerate(self.json_data['BuildingTemplates']):
             if building_template_info['Core']['$ref'] == template_ref:
-                window_to_wall_ratio = building_template_info['DefaultWindowToWallRatio']
-                print("DefaultWindowToWallRatio:", window_to_wall_ratio)
-                building_template_info['DefaultWindowToWallRatio'] = sample[4]
-                print("sample:", sample[4])
+                self.modify_json(['BuildingTemplates', idx, 'DefaultWindowToWallRatio'], sample[5])
 
-        
+
         # 5 ~ 6 ZoneConditionings의 'CoolingSetpoint', 'HeatingSetpoint'
-        for zone_condition_info in self.json_data['ZoneConditionings']:
+        for idx, zone_condition_info in enumerate(self.json_data['ZoneConditionings']):
             if zone_condition_info['$id'] == condition_ref:
-                cooling_setpoint = zone_condition_info['CoolingSetpoint']
-                print("CoolingSetpoint:", cooling_setpoint)
-                zone_condition_info['CoolingSetpoint'] = sample[5]
-                print("sample:", sample[5])
-
-                heating_setpoint = zone_condition_info['HeatingSetpoint']
-                print("HeatingSetpoint:", heating_setpoint)
-                zone_condition_info['HeatingSetpoint'] = sample[6]
-                print("sample:", sample[6])
+                self.modify_json(['ZoneConditionings', idx, 'CoolingSetpoint'], sample[6])
+                self.modify_json(['ZoneConditionings', idx, 'HeatingSetpoint'], sample[7])
 
 
         # 7 ~ 9 ZoneLoads의 'EquipmentPowerDensity', 'LightingPowerDensity', 'PeopleDensity'
-        for zone_load_info in self.json_data['ZoneLoads']:
+        for idx, zone_load_info in enumerate(self.json_data['ZoneLoads']):
             if zone_load_info['$id'] == loads_ref:
-                equipment_power_density = zone_load_info['EquipmentPowerDensity']
-                print("EquipmentPowerDensity:", equipment_power_density)
-                zone_load_info['EquipmentPowerDensity'] = sample[7]
-                print("sample:", sample[7])
-
-                lighting_power_density = zone_load_info['LightingPowerDensity']
-                print("LightingPowerDensity:", lighting_power_density)
-                zone_load_info['LightingPowerDensity'] = sample[8]
-                print("sample:", sample[8])
-
-                people_density = zone_load_info['PeopleDensity']
-                print("PeopleDensity:", people_density)
-                zone_load_info['PeopleDensity'] = sample[9]
-                print("sample:", sample[9])
+                self.modify_json(['ZoneLoads', idx, 'EquipmentPowerDensity'], sample[8])
+                self.modify_json(['ZoneLoads', idx, 'LightingPowerDensity'], sample[9])
+                self.modify_json(['ZoneLoads', idx, 'PeopleDensity'], sample[10])
 
         # 10 VentilationSettings의 'Infiltration'
-        for ventilation_info in self.json_data['VentilationSettings']:
+        for idx, ventilation_info in enumerate(self.json_data['VentilationSettings']):
             if ventilation_info['$id'] == ventil_ref:
-                infiltration = ventilation_info['Infiltration']
-                print("Infiltration:", infiltration)
-                ventilation_info['Infiltration'] = sample[10]
-                print("sample:", sample[10])
+                self.modify_json(['VentilationSettings', idx, 'Infiltration'], sample[11])
 
-        with open(self.json_path, 'w') as json_file:
+        total_conductivity = self.get_building_conductivity(template_name)
+        # 열관류율(외벽), 열관류율(지붕(Off, Ret)), 열관류율(지붕(Res)), 열관류율(바닥), 열관류율(창호), 창면적비, 실내 냉방 설정 온도, 실내 난방 설정 온도, 재실밀도, 기기밀도, 조명밀도, 침기율
+        # print("열관류율(외벽):", total_conductivity[0])
+        # print("열관류율(지붕):", total_conductivity[1])
+        # print("열관류율(바닥):", total_conductivity[2])
+        # print("열관류율(창호):", total_conductivity[3])
+        # print("창면적비:", sample[5])
+        # print("실내 냉방 설정 온도:", sample[6])
+        # print("실내 난방 설정 온도:", sample[7])
+        # print("재실밀도:", sample[8])
+        # print("기기밀도:", sample[9])
+        # print("조명밀도:", sample[10])
+        # print("침기율:", sample[11])
+
+        with open('BostonTemplateLibraryModified.json', 'w') as json_file:
             json.dump(self.json_data, json_file, indent=2)
+
+        output_samples = list(total_conductivity)[:] + sample[5:12]
+
+        return output_samples
