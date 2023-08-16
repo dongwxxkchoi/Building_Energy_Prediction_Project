@@ -20,7 +20,10 @@ if __name__ == "__main__":
     folder_path = "./data/lhs_sample"
 
     for key in keys:
-        LHS.samples_to_csv(key)
+        if 'Res' in key:
+            res = True
+        else: res = False
+        LHS.samples_to_csv(key, res)
         file_name = "samples_" + key + ".csv"
         template_df_dicts[key] = pd.read_csv(os.path.join(folder_path, file_name))
 
@@ -34,4 +37,4 @@ if __name__ == "__main__":
             epoch_samples = samples_df.loc[epoch-1].values.tolist()
             modifier.modify_template(template_name, epoch_samples, epoch)
 
-
+        modifier.update_json(epoch)

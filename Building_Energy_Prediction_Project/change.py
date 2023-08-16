@@ -160,6 +160,14 @@ class Modifier:
 
         return material_conductivity
 
+    def update_json(self, epoch):
+        file_name = "template_"+str(epoch)+".json"
+        folder_path = "./data/tlf_files"
+        file_path = os.path.join(folder_path, file_name)
+
+        with open(file_path, 'w') as json_file:
+            json.dump(self.json_data, json_file, indent=2)
+
     def modify_json(self, keys, data):
         if len(keys) == 1:
             key = keys
@@ -246,8 +254,8 @@ class Modifier:
         folder_path = "./data/tlf_files"
         file_path = os.path.join(folder_path, file_name)
 
-        with open(file_path, 'w') as json_file:
-            json.dump(self.json_data, json_file, indent=2)
+        # with open(file_path, 'w') as json_file:
+        #     json.dump(self.json_data, json_file, indent=2)
 
         # output_samples = list(total_conductivity)[:] + sample[5:12]
 
