@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="19439da9-d215-4bb9-a04e-d88ff595b923" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/0.LHS-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/1.change_tlf_json-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/2.change_umi_sqlite-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/LHS-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/check_json-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/check_rhino_id-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/sampling-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/sqlfile_check-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BostonTemplateLibraryModified.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LHS.py" beforeDir="false" afterPath="$PROJECT_DIR$/LHS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate.fish" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate.nu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate_this.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/deactivate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/deactivate.nu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/f2py.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip-3.9.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip3.9.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pydoc.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/python.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pythonw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/wheel-3.9.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/wheel.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/wheel3.9.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/wheel3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/change.py" beforeDir="false" afterPath="$PROJECT_DIR$/change.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json_files/BostonTemplateLibraryModified.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json_files/BostonTemplateLibraryModified.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Off_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Off_0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Off_0_decoded.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Res_0_Masonry.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Res_0_Masonry.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Ret_0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/lhs_sample/samples_Boston_Ret_0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/samples_Boston_Off_0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyvenv.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/umi.sqlite3" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2U2xmgviTn8rsYEdKr5huZfGU9q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19439da9-d215-4bb9-a04e-d88ff595b923" name="Changes" comment="" />
+      <created>1692151637969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692151637969</updated>
+      <workItem from="1692151639192" duration="3285000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/LHS_py$LHS.coverage" NAME="LHS Coverage Results" MODIFIED="1692151807829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LHS_py$main.coverage" NAME="main Coverage Results" MODIFIED="1692154546528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LHS_py$analysis.coverage" NAME="analysis Coverage Results" MODIFIED="1692154914738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

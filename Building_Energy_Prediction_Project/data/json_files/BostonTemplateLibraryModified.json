@@ -22,7 +22,7 @@
       "$id": "2",
       "Category": "Gases",
       "Type": "ARGON",
-      "Conductivity": 0.0,
+      "Conductivity": 0.016,
       "Cost": 0.0,
       "Density": 0.0,
       "EmbodiedCarbon": 0.0,

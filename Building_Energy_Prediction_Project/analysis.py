@@ -6,11 +6,12 @@ off_df = pd.read_csv("data/lhs_sample/samples_Boston_Off_0.csv")
 res_df = pd.read_csv("data/lhs_sample/samples_Boston_Res_0_Masonry.csv")
 ret_df = pd.read_csv("data/lhs_sample/samples_Boston_Ret_0.csv")
 
-# print(off_df.describe())
-# print(res_df.describe())
-# print(ret_df.describe())
+column = ['열관류율(외벽)', '열관류율(지붕)', '열관류율(바닥)', '열관류율(창호)']
+print(off_df[column].describe())
+print(res_df[column].describe())
+print(ret_df[column].describe())
 
-samples = LHS.sampling(res=True)
+# off_df.loc[0]
 
 # plt.hist(off_df['기기밀도'], bins=30)
 # plt.hist(off_df['재실밀도'], bins=30)
